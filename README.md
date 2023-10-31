@@ -101,8 +101,6 @@ And now you should be able to see the project running on `localhost:3000`
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **[Add and delete posts]**
 - [ ] **[Like posts]**
 
