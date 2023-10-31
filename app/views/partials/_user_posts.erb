@@ -1,0 +1,15 @@
+<% @posts.each do |post|%>
+  <div class="flex flex-col gap-2">
+  <%= render partial: "partials/post", locals: {post:post}%>
+  <ul class="w-full m-0 p-0 border-4">
+    <% if post.comments_count %>
+      <% post.return_last_five_comments.each do |comment|%>
+        <%= render partial: "partials/comments", locals: {comment: comment} %>
+      <% end %>
+    <% else%>
+      <li class="list-none flex gap-2">
+        <p>No comments yet</p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

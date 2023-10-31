@@ -1,0 +1,16 @@
+<div class="border-4 p-2">
+  <%= link_to user_post_path(post.author, post), class:"cursor-pointer" do%>
+    <h4><%= post.title %></h4>
+  <% end %>
+  <p><%= post.text %></p>
+  <div class="flex gap-2 justify-end">
+    <div class="flex gap-2">
+      <p>Comments:</p>
+      <p><%= post.comments_count %></p>
+    </div>
+    <div class="flex gap-2">
+      <p>Likes:</p>
+      <p><%= post.likes_count %></p>
+    </div>
+  </div>
+</div>

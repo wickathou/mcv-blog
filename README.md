@@ -15,7 +15,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [� Getting Started ](#-getting-started-)
+  - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
@@ -69,8 +69,16 @@ Clone this repository to your desired folder:
 ### Install
 
 Install the required gems
-
 `bundle install`
+
+Create the database by running the command
+`rails db:create`
+
+Then run the migrations by setting up the db
+`rails db:setup`
+
+Then seed the database using
+`rails db:seed`
 
 ### Usage
 
@@ -92,8 +100,6 @@ And now you should be able to see the project running on `localhost:3000`
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[Add and delete posts]**
 - [ ] **[Like posts]**
