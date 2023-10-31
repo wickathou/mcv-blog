@@ -1,0 +1,10 @@
+<div class="w-full m-0 p-0">
+  <% if @posts.empty? %>
+    <%= "No posts" %>
+  <% else %>
+    <%= render partial: "partials/user_posts", locals: {posts: @posts} %>
+  <% end %>
+</div>
+<div class="flex justify-center m-4">
+<%= link_to 'Back to user profile', user_path(@user)%>
+</div>

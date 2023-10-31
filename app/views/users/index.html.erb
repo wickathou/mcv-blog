@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
+<div class="flex flex-col gap-4">
 <h1>Users</h1>
-
-<div id="users">
+<ul id="users">
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+  <%= link_to user, class:"cursor-pointer" do%>
+    <%= render partial:'partials/user_listing', locals: {user: user}%>
   <% end %>
-</div>
+  <% end %>
+</ul>
 
-<%= link_to "New user", new_user_path %>

@@ -15,7 +15,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [� Getting Started ](#-getting-started-)
+  - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
@@ -69,8 +69,16 @@ Clone this repository to your desired folder:
 ### Install
 
 Install the required gems
-
 `bundle install`
+
+Create the database by running the command
+`rails db:create`
+
+Then run the migrations by setting up the db
+`rails db:setup`
+
+Then seed the database using
+`rails db:seed`
 
 ### Usage
 
