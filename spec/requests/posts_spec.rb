@@ -16,7 +16,7 @@ describe 'requests for users index' do
 
   it 'check that body contains the expected text' do
     get user_posts_url(test_user)
-    expect(response.body).to include("Back to user profile")
+    expect(response.body).to include('Back to user profile')
   end
 
   it 'check if post count is correct' do
@@ -37,7 +37,7 @@ describe 'requests for users index' do
 
   it 'check that body contains the expected text' do
     get user_post_url(test_user, test_post)
-    expect(response.body).to include("Back to all posts")
+    expect(response.body).to include('Back to all posts')
   end
 
   it 'check if post data is rendered' do

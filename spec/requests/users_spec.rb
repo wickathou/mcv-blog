@@ -14,7 +14,7 @@ describe 'requests for users index' do
 
   it 'check that body contains the expected text' do
     get users_url
-    expect(response.body).to include("Users")
+    expect(response.body).to include('Users')
   end
 
   it 'check if user count is returned' do
@@ -37,7 +37,7 @@ describe 'requests for users index' do
 
   it 'check if #show renders text from the correct template' do
     get user_url(User.first)
-    expect(response.body).to include("Back to users")
+    expect(response.body).to include('Back to users')
   end
 
   it 'check if user data is rendered' do
