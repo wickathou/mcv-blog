@@ -19,6 +19,7 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
+    - [Run tests](#run-tests)
     - [Usage](#usage)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
@@ -79,6 +80,11 @@ Then run the migrations by setting up the db
 
 Then seed the database using
 `rails db:seed`
+
+### Run tests
+
+Run the tests using
+`rspec`
 
 ### Usage
 
