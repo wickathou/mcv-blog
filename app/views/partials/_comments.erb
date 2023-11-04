@@ -1,4 +1,3 @@
 <li class="list-none">
-  <h4><%= User.find(comment.user_id).name %>:</h4>
-  <p><%= comment.text %></p>
+  <p><%= comment.user.name %>: <%= comment.text %></p>
 </li>

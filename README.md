@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="./twatter.png" alt="logo" width="140"  height="auto" />
+  <img src="./app/assets/images/twatter.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Blog app on Rails</b></h3>
