@@ -14,6 +14,11 @@ describe 'requests for users index' do
     expect(response).to render_template('posts/index')
   end
 
+  it 'check that body contains the expected text' do
+    get user_posts_url(test_user)
+    expect(response.body).to include("Back to user profile")
+  end
+
   it 'check if post count is correct' do
     get user_posts_url(test_user), as: :json
     json_response = JSON.parse(response.body)
@@ -28,6 +33,11 @@ describe 'requests for users index' do
   it 'check if the post template renders' do
     get user_post_url(test_user, test_post)
     expect(response).to render_template('posts/show')
+  end
+
+  it 'check that body contains the expected text' do
+    get user_post_url(test_user, test_post)
+    expect(response.body).to include("Back to all posts")
   end
 
   it 'check if post data is rendered' do

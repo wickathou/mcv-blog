@@ -12,6 +12,11 @@ describe 'requests for users index' do
     expect(response).to render_template('users/index')
   end
 
+  it 'check that body contains the expected text' do
+    get users_url
+    expect(response.body).to include("Users")
+  end
+
   it 'check if user count is returned' do
     get users_url, as: :json
     json_response = JSON.parse(response.body)
@@ -28,6 +33,11 @@ describe 'requests for users index' do
     other_user = User.create!(name: 'New Here', bio: 'With a bio')
     get user_url(other_user)
     expect(response).to render_template('users/show')
+  end
+
+  it 'check if #show renders text from the correct template' do
+    get user_url(User.first)
+    expect(response.body).to include("Back to users")
   end
 
   it 'check if user data is rendered' do
