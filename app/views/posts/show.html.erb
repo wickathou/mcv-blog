@@ -19,6 +19,14 @@
   <% end %>
 </ul>
 
+<div class="my-2 border-4">
+  <%= render partial: "partials/new_comment", locals: {post:@post}%>
+</div>
+
+<div class="my-2 border-4">
+  <%= render partial: "partials/like", locals: {post:@post}%>
+</div>
+
 <div class="flex justify-center m-4">
 <%= link_to 'Back to all posts', user_posts_path(@post.author), class:"cursor-pointer"%>
 </div>

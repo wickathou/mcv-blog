@@ -1,0 +1,6 @@
+<%= form_with( model: [current_user, post, Comment.new], local: true) do |form| %>
+  <div class='flex flex-col gap-2'>
+  <%= form.text_field :text, placeholder: 'Comment', class:'border-4' %>
+  <%= form.submit "Add comment"%>
+  </div>
+<% end %>

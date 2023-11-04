@@ -15,4 +15,26 @@ class PostsController < ApplicationController
       format.json { render json: { post: @post } }
     end
   end
+
+  def create
+    @post = Post.new(post_params)
+    @post.author = current_user
+    if @post.save
+      respond_to do |format|
+        format.html { redirect_to user_post_url(current_user, @post) }
+        format.json { render json: { post: @post } }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to user_posts_url(current_user) }
+        format.json { render json: { errors: @post.errors.full_messages } }
+      end
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end

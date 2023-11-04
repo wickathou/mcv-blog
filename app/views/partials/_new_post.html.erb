@@ -1,0 +1,7 @@
+<%= form_with(model:[current_user, Post.new], local:true) do |form| %>
+  <div class='flex flex-col gap-2'>
+    <%= form.text_field :title, placeholder: 'Title', class:'border-4' %>
+    <%= form.text_field :text , placeholder: 'Text', class:'border-4'%>
+    <%= form.submit "Add post"%>
+  </div>
+<% end %>
