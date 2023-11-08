@@ -30,13 +30,13 @@ RSpec.describe 'user show page tests', type: :system do
       expect(page).to have_content(test_user.bio)
     end
 
-    it 'check that user page shows the last 3 posts' do
+    it 'check that user page shows the first 3 posts' do
       visit user_path(test_user)
+      expect(page).to have_content(post_one.title)
+      expect(page).to have_content(post_two.title)
       expect(page).to have_content(post_three.title)
-      expect(page).to have_content(post_four.title)
-      expect(page).to have_content(post_five.title)
-      expect(page).not_to have_content(post_one.title)
-      expect(page).not_to have_content(post_two.title)
+      expect(page).not_to have_content(post_four.title)
+      expect(page).not_to have_content(post_five.title)
     end
 
     it 'check if button exist in the user page with the string See all posts' do
