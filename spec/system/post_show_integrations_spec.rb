@@ -14,6 +14,7 @@ RSpec.describe 'post pages tests', type: :system do
   Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user_two)
   Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user_two)
   comment_user_one = Comment.create!(text: 'Test Comment 1', user: test_user_two, post: post_user_one)
+  comment_user_two = Comment.create!(text: 'Test Comment 2', user: test_user_one, post: post_user_one)
   Like.create!(user: test_user_two, post: post_user_one)
 
   describe 'User posts show page' do
@@ -47,6 +48,7 @@ RSpec.describe 'post pages tests', type: :system do
     it 'shows the names of the people leaving comments on the post' do
       visit user_post_path(test_user_one, post_user_one)
       within('ul.comments') do
+        expect(page).to have_content(test_user_one.name)
         expect(page).to have_content(test_user_two.name)
       end
     end
@@ -55,6 +57,7 @@ RSpec.describe 'post pages tests', type: :system do
       visit user_post_path(test_user_one, post_user_one)
       within('ul.comments') do
         expect(page).to have_content(comment_user_one.text)
+        expect(page).to have_content(comment_user_two.text)
       end
     end
   end
