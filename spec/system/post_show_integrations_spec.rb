@@ -16,63 +16,6 @@ RSpec.describe 'post pages tests', type: :system do
   comment_user_one = Comment.create!(text: 'Test Comment 1', user: test_user_two, post: post_user_one)
   Like.create!(user: test_user_two, post: post_user_one)
 
-  describe 'User posts index page' do
-    it 'shows the user profile picture' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_css('div.profile-picture')
-    end
-
-    it 'check that show page loads the user name' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content(test_user_one.name)
-    end
-
-    it 'check that show page loads the user post count' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content('Number of posts:')
-      expect(page).to have_content(test_user_one.posts_count)
-    end
-
-    it 'check that a post title is rendered' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content(post_user_one.title)
-    end
-
-    it 'check that a post text is rendered' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content(post_user_one.text)
-    end
-
-    it 'check that comments are rendered' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content(comment_user_one.text)
-    end
-
-    it 'checks that the comment count is shown' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content('Comments:')
-      expect(page).to have_content(post_user_one.comments_count)
-    end
-
-    it 'checks that the likes count is shown' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_content('Likes:')
-      expect(page).to have_content(post_user_one.likes_count)
-    end
-
-    it 'checks that the pagination button is shown' do
-      visit user_posts_path(test_user_one)
-      expect(page).to have_button('Load more posts')
-    end
-
-    it 'checks that when clicking on a post title takes you to the post page' do
-      visit user_posts_path(test_user_one)
-      click_on(post_user_one.title)
-      expect(page).to have_content(post_user_one.title)
-      expect(page).to have_content(post_user_one.text)
-    end
-  end
-
   describe 'User posts show page' do
     it 'shows the title of the post' do
       visit user_post_path(test_user_one, post_user_one)

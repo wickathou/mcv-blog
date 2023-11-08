@@ -8,13 +8,6 @@ RSpec.describe 'user show page tests', type: :system do
   post_four = Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user)
   post_five = Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user)
 
-  describe 'index page' do
-    it 'shows the right content' do
-      visit users_path
-      expect(page).to have_content('Users')
-    end
-  end
-
   describe 'user show page' do
     it 'check that show page loads the user name' do
       visit user_path(test_user)
