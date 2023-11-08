@@ -22,6 +22,8 @@
             <p>Welcome <%= current_user.name%></p>
             <%= link_to "Logout", destroy_user_session_path, 'data-turbo-method': :delete, class:'border p-4'%>
           </div>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class:'border p-4'%>
         <% end %>
     </div>
       
