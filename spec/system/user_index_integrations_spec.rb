@@ -18,18 +18,18 @@ RSpec.describe 'user show page tests', type: :system do
       visit users_path
       expect(page).to have_content(test_user.name)
     end
-    
+
     it 'check that index page loads the user post count' do
       visit users_path
       expect(page).to have_content('Number of posts:')
       expect(page).to have_content(test_user.posts_count)
     end
-  
+
     it 'check that index page shows the profile picture' do
       visit users_path
       expect(page).to have_css('div.profile-picture')
     end
-  
+
     it 'checks if clicking on a user profile takes you to the user profile page' do
       visit users_path
       click_on(test_user.name)

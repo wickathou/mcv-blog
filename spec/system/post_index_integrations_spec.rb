@@ -72,5 +72,4 @@ RSpec.describe 'post pages tests', type: :system do
       expect(page).to have_content(post_user_one.text)
     end
   end
-
 end
