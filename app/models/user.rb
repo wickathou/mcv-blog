@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def first_three_posts
     posts.order(created_at: :asc).limit(3)
   end
+
+  def as_json(_options={})
+    { :name => self.name, :bio => self.bio, :posts_count => self.posts_count }
+  end
 end

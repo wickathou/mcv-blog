@@ -3,10 +3,15 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: 'post_id'
   has_many :comments, foreign_key: 'post_id'
   validates :title, presence: true, length: { minimum: 3, maximum: 250 }
+  validates :text, presence: true, length: { minimum: 3, maximum: 500 }
   validates :comments_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def return_last_five_comments
     comments.includes(:user).order(created_at: :desc).limit(5)
+  end
+
+  def as_json(_options={})
+    { :title => self.title, :text => self.text, :comments_count => self.comments_count, :likes_count => self.likes_count, :author => self.author, :comments => self.comments }
   end
 end
