@@ -6,5 +6,6 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
+  post "/auth/login", to: "authentication#login"
   root "users#index"
 end
