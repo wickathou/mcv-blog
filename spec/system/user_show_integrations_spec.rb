@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'user show page tests', type: :system do
-  test_user = User.create!(name: 'Test User', bio: 'With a bio')
+  test_user = User.create!(name: 'Special User', bio: 'With a bio')
   post_one = Post.create!(title: 'Test Post 1', text: 'With some text 1', author: test_user)
   post_two = Post.create!(title: 'Test Post 2', text: 'With some text 2', author: test_user)
   post_three = Post.create!(title: 'Test Post 3', text: 'With some text 3', author: test_user)

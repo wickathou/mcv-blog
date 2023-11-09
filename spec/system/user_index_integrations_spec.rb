@@ -31,9 +31,10 @@ RSpec.describe 'user show page tests', type: :system do
     end
 
     it 'checks if clicking on a user profile takes you to the user profile page' do
+      unique_user = User.create!(name: 'Unique person', bio: 'Extra with a bio')
       visit users_path
-      click_on(test_user.name)
-      expect(page).to have_content(test_user.bio)
+      click_on(unique_user.name)
+      expect(page).to have_content(unique_user.bio)
     end
   end
 end

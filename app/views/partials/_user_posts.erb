@@ -1,6 +1,6 @@
 <% @posts.each do |post|%>
   <div class="flex flex-col gap-2">
-  <%= render partial: "partials/post", locals: {post:post}%>
+  <%= render partial: "partials/post", locals: {user:@user, post:post}%>
   <ul class="w-full m-0 p-0 border-4">
     <% if post.comments_count %>
       <% post.return_last_five_comments.each do |comment|%>
