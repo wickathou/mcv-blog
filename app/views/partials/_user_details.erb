@@ -3,8 +3,8 @@
     <h4>Bio</h4>
     <p><%= @user.bio %></p>
   </div>
-  <% @user.last_three_posts.each do |post| %>
-    <%= render partial: "partials/post", locals: {post:post}%>
+  <% @user.first_three_posts.each do |post| %>
+    <%= render partial: "partials/post", locals: {user: @user, post:post}%>
   <% end %>
   <div class="flex justify-center">
     <%= link_to 'See all posts', user_posts_path(@user), class:"py-2 px-4 w-fit border-4 shadow shadow-slate-500 cursor-pointer hover:bg-slate-300" %>

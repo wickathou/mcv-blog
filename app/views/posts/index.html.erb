@@ -1,12 +1,16 @@
+<%= render partial: "partials/user_listing", locals: {user: @user}%>
 <div class="w-full m-0 p-0">
   <% if @posts.empty? %>
     <%= "No posts" %>
   <% else %>
-    <%= render partial: "partials/user_posts", locals: {posts: @posts} %>
+    <%= render partial: "partials/user_posts", locals: {user:@user, posts: @posts} %>
   <% end %>
 </div>
 <div class="my-2">
   <%= render partial: "partials/new_post"%>
+</div>
+<div class="flex justify-center m-4">
+<%= button_to 'Load more posts', class:"cursor-pointer"%>
 </div>
 <div class="flex justify-center m-4">
 <%= link_to 'Back to user profile', user_path(@user), class:"cursor-pointer"%>

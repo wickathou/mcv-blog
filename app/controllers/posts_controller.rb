@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(author: @user)
+    @posts = Post.joins(:author).where(author: @user).select('posts.*, users.name AS author_name')
     respond_to do |format|
       format.html { render 'posts/index' }
       format.json { render json: { user: @user, posts: @posts } }
@@ -9,10 +9,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(comments: [:user]).find(params[:id])
     respond_to do |format|
       format.html { render 'posts/show' }
-      format.json { render json: { post: @post } }
+      format.json { render json: { post: @post.as_json(include: { comments: { include: :user } }) } }
     end
   end
 
