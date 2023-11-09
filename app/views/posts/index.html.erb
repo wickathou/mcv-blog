@@ -3,7 +3,7 @@
   <% if @posts.empty? %>
     <%= "No posts" %>
   <% else %>
-    <%= render partial: "partials/user_posts", locals: {posts: @posts} %>
+    <%= render partial: "partials/user_posts", locals: {user:@user, posts: @posts} %>
   <% end %>
 </div>
 <div class="my-2">

@@ -103,6 +103,12 @@ And now you should be able to see the project running on `localhost:3000`
 - GitHub: [@wickathou](https://github.com/wickathou)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/javierjhm/)
 
+
+👤 **Anshuman Singh Negi**
+- GitHub: [@githubhandle](https://github.com/anshuman7negi)
+- Twitter: [@twitterhandle](https://twitter.com/AnshumanNegi108)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/anshuman-singh-negi-33779a224/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

@@ -1,5 +1,5 @@
 <div class="border-4 p-2">
-  <%= link_to user_post_path(post.author, post), class:"cursor-pointer" do%>
+  <%= link_to user_post_path(user, post), class:"cursor-pointer" do%>
     <h4><%= post.title %></h4>
   <% end %>
   <p><%= post.text %></p>
