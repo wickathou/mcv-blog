@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
     render json: { comments: @comments }, status: :ok
   end
-  
+
   private
 
   def comment_params
