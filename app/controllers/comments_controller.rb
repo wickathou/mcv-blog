@@ -17,6 +17,12 @@ class CommentsController < ApplicationController
 
   private
 
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    render json: { comments: @comments }, status: :ok
+  end
+
   def comment_params
     params.require(:comment).permit(:text)
   end
