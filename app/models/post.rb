@@ -10,8 +10,7 @@ class Post < ApplicationRecord
     comments.includes(:user).order(created_at: :desc).limit(5)
   end
 
-  def as_json(options = {})
-    super(except: [:created_at, :updated_at])
+  def as_json(_options = {})
+    super(except: %i[created_at updated_at])
   end
-  
 end

@@ -17,8 +17,7 @@ class User < ApplicationRecord
     posts.order(created_at: :asc).limit(3)
   end
 
-  def as_json(options = {})
-    super(except: [:created_at, :updated_at])
+  def as_json(_options = {})
+    super(except: %i[created_at updated_at])
   end
-  
 end
