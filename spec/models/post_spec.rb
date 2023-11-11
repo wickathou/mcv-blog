@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  new_user = User.create(name: 'John Doe', bio: 'This is a bio')
+  new_user = User.create(name: 'John Doe', bio: 'This is a bio', email: 'jack@j.com')
   new_post = new_user.posts.create(title: 'Title1', text: 'Body1')
 
   before do

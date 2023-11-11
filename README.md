@@ -21,6 +21,7 @@
     - [Install](#install)
     - [Run tests](#run-tests)
     - [Usage](#usage)
+    - [API request examples](#api-request-examples)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -91,6 +92,17 @@ Run the tests using
 Then run the rails server
 
 `rails s`
+
+### API request examples
+
+To fetch all users:
+`curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X GET http://localhost:3000/users`
+
+To fetch all comments to a post:
+`curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X GET http://localhost:3000/posts/9/comments/`
+
+To post a comment to a post:
+`curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST -d '{"comment": {"text":"something", "user_id":9}}'  http://localhost:3000/users/9/posts/9/comments/`
 
 And now you should be able to see the project running on `localhost:3000`
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  new_user_valid = User.create(name: 'John Doe', bio: 'This is a bio')
+  new_user_valid = User.create(name: 'John Doe', bio: 'This is a bio', email: 'jack@j.com')
 
   before do
     new_user_valid.posts.destroy_all

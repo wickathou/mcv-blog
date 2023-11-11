@@ -6,5 +6,10 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
+
+  resources :posts do
+    get 'comments', to: 'comments#index' # Route to fetch comments for a specific post
+  end
+  
   root "users#index"
 end
