@@ -1,8 +1,23 @@
 require 'rails_helper'
 
 describe 'requests for users index' do
-  test_user = User.create!(name: 'Tes', bio: 'Different')
-  test_post = Post.create!(title: 'Tes', text: 'Different', author: test_user)
+  let(:test_user) do
+    user = User.create!(name: 'Tes', bio: 'Different', email: 'qweiuorq@j.com', password: '123456')
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  # test_user = User.create!(name: 'Tes', bio: 'Different', email: 'qweiuorq@j.com', password: '123456').confirm
+
+  let(:test_post) do
+    Post.create!(title: 'Tes', text: 'Different', author: test_user)
+  end
+  # test_post = Post.create!(title: 'Tes', text: 'Different', author: test_user)
+
+  after(:context) do
+    test_post.destroy
+    test_user.destroy
+  end
 
   it 'check if response is ok for posts/index' do
     get user_posts_url(test_user)

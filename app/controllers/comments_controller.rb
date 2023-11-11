@@ -5,8 +5,8 @@ class CommentsController < ApplicationController
     @comment.post = Post.find(params[:post_id])
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to user_post_url(current_user || current_user_alt, @comment.post) }
         format.json { render json: { post: @comment } }
+        format.html { redirect_to user_post_url(current_user || current_user_alt, @comment.post) }
       end
     else
       respond_to do |format|

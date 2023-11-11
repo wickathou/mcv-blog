@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  new_user = User.create(name: 'John Doe', bio: 'This is a bio', email: 'jack@j.com')
-  new_post = new_user.posts.create(title: 'Title1', text: 'Body1')
+  let(:new_user) do
+    user = User.new(name: 'Tes', bio: 'Different', email: 'qweiuorq@j.com', password: '123456')
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  let(:new_post) do
+    new_user.posts.create(title: 'Title1', text: 'Body1')
+  end
 
   before do
     new_post.comments.destroy_all

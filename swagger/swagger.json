@@ -1,0 +1,2 @@
+---
+curl_template: spec/support/swagger/custom_curl.erb

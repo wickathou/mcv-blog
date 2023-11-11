@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  new_user_valid = User.create(name: 'John Doe', bio: 'This is a bio', email: 'jack@j.com')
+  let(:new_user_valid) do
+    user = User.new(name: 'Tes', bio: 'Different', email: 'qweiuorq@j.com', password: '123456')
+    user.skip_confirmation!
+    user.save!
+    user
+  end
 
   before do
     new_user_valid.posts.destroy_all
