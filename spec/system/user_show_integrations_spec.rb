@@ -1,12 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe 'user show page tests', type: :system do
-  test_user = User.create!(name: 'Special User', bio: 'With a bio')
-  post_one = Post.create!(title: 'Test Post 1', text: 'With some text 1', author: test_user)
-  post_two = Post.create!(title: 'Test Post 2', text: 'With some text 2', author: test_user)
-  post_three = Post.create!(title: 'Test Post 3', text: 'With some text 3', author: test_user)
-  post_four = Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user)
-  post_five = Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user)
+  let(:test_user) do
+    user = User.create!(name: 'Special User', bio: 'With a bio', email: 'pogd@g.com', password: '123456')
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  let(:post_one) do
+    Post.create!(title: 'Test Post 1', text: 'With some text 1', author: test_user)
+  end
+  let(:post_two) do
+    Post.create!(title: 'Test Post 2', text: 'With some text 2', author: test_user)
+  end
+  let(:post_three) do
+    Post.create!(title: 'Test Post 3', text: 'With some text 3', author: test_user)
+  end
+  let(:post_four) do
+    Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user)
+  end
+  let(:post_five) do
+    Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user)
+  end
+
+  after(:context) do
+    test_user.destroy
+  end
 
   describe 'user show page' do
     it 'check that show page loads the user name' do

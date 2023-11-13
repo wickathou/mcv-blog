@@ -1,0 +1,101 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users":
+    get:
+      summary: Retrieves all users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    photo:
+                      type: string
+                    bio:
+                      type: string
+                    posts_count:
+                      type: integer
+                    email:
+                      type: string
+  "/posts/{post_id}/comments/":
+    get:
+      summary: Retrieves all comments for a post
+      tags:
+      - Comments
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: comments found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    post_id:
+                      type: integer
+                    text:
+                      type: string
+  "/users/{user_id}/posts/{post_id}/comments":
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: post_id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      summary: Creates a comment
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - text
+                  - user_id
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

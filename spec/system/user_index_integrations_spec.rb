@@ -1,12 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe 'user show page tests', type: :system do
-  test_user = User.create!(name: 'Unique username', bio: 'With a bio')
-  Post.create!(title: 'Test Post 1', text: 'With some text 1', author: test_user)
-  Post.create!(title: 'Test Post 2', text: 'With some text 2', author: test_user)
-  Post.create!(title: 'Test Post 3', text: 'With some text 3', author: test_user)
-  Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user)
-  Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user)
+  let(:test_user) do
+    user = User.create!(name: 'Unique username', bio: 'With a bio', email: 'ytht@g.com', password: '123456')
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  let(:post_user_one) do
+    Post.create!(title: 'Test Post 1', text: 'With some text 1', author: test_user)
+  end
+  let(:post_user_two) do
+    Post.create!(title: 'Test Post 2', text: 'With some text 2', author: test_user)
+  end
+  let(:post_user_three) do
+    Post.create!(title: 'Test Post 3', text: 'With some text 3', author: test_user)
+  end
+  let(:post_user_four) do
+    Post.create!(title: 'Test Post 4', text: 'With some text 4', author: test_user)
+  end
+  let(:post_user_five) do
+    Post.create!(title: 'Test Post 5', text: 'With some text 5', author: test_user)
+  end
+
+  after(:context) do
+    test_user.destroy
+  end
 
   describe 'index page' do
     it 'shows the right content' do
